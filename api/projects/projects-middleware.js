@@ -18,8 +18,8 @@ const checkProjectId = async (req, res, next) => {
 };
 
 const checkNewProject = (req, res, next) => {
-  const { name, description } = req.body;
-  if (!name || !description) {
+  const { name, description, completed } = req.body;
+  if (!name || !description || completed === undefined) {
     res.status(400).json({
       message: "Project name and description are required",
     });
