@@ -23,9 +23,9 @@ You will build an API that has Create, Read, Update and Delete (CRUD) functional
 A _"test"_ script already exists you can use to run tests against your code.
 A _"resetdb"_ script exists that allows you to reset the database to its original state.
 
-- [ ] Write an _npm script_ named _"start"_ that uses `node` to run the API server.
-- [ ] Write an _npm script_ named _"server"_ that uses `nodemon` to run the API server.
-- [ ] Install _nodemon_ as a development dependency that would not be used in production.
+- [x] Write an _npm script_ named _"start"_ that uses `node` to run the API server.
+- [x] Write an _npm script_ named _"server"_ that uses `nodemon` to run the API server.
+- [x] Install _nodemon_ as a development dependency that would not be used in production.
 
 ### Task 2: Consume Environment Variables
 
@@ -84,22 +84,22 @@ The description of the structure and extra information about each _resource_ sto
 
 #### Projects
 
-| Field       | Data Type | Metadata                                                                    |
-| ----------- | --------- | --------------------------------------------------------------------------- |
-| id          | number    | do not provide it when creating projects, the database will generate it     |
-| name        | string    | required                                                                    |
-| description | string    | required                                                                    |
-| completed   | boolean   | not required, defaults to false when creating projects                      |
+| Field       | Data Type | Metadata                                                                |
+| ----------- | --------- | ----------------------------------------------------------------------- |
+| id          | number    | do not provide it when creating projects, the database will generate it |
+| name        | string    | required                                                                |
+| description | string    | required                                                                |
+| completed   | boolean   | not required, defaults to false when creating projects                  |
 
 #### Actions
 
-| Field       | Data Type | Metadata                                                                                         |
-| ----------- | --------- | ------------------------------------------------------------------------------------------------ |
-| id          | number    | do not provide it when creating actions, the database will generate it                           |
-| project_id  | number    | required, must be the id of an existing project                                                  |
-| description | string    | required, up to 128 characters long                                                              |
-| notes       | string    | required, no size limit. Used to record additional notes or requirements to complete the action  |
-| completed   | boolean   | not required, defaults to false when creating actions                                            |
+| Field       | Data Type | Metadata                                                                                        |
+| ----------- | --------- | ----------------------------------------------------------------------------------------------- |
+| id          | number    | do not provide it when creating actions, the database will generate it                          |
+| project_id  | number    | required, must be the id of an existing project                                                 |
+| description | string    | required, up to 128 characters long                                                             |
+| notes       | string    | required, no size limit. Used to record additional notes or requirements to complete the action |
+| completed   | boolean   | not required, defaults to false when creating actions                                           |
 
 ### Information on Database Persistence Helpers
 
@@ -125,3 +125,47 @@ We have provided test data for all the resources.
 - You are welcome to create additional files, but **do not move or rename existing files** or folders.
 - In your solution, it is essential that you follow best practices and produce clean and professional results.
 - Schedule time to review, refine, and assess your work and perform basic professional polishing including spell-checking and grammar-checking on your work.
+
+# TESTS
+
+- [ ] sanity check (5 ms)
+      server.js
+      projects endpoints
+## [GET] /api/projects
+- [ ] sends back all projects that exist (15 ms)
+- [ ] sends back empty array if no projects (13 ms)
+## [GET] /api/projects/:id
+- [ ] sends back the project with given id (6 ms)
+- [ ] responds with a 404 if no project with given id (4 ms)
+## [POST] /api/projects
+- [ ] responds with the newly created project (4 ms)
+- [ ] inserts a new project into projects table (4 ms)
+- [ ] responds with a 400 if the request body is missing name or description (4 ms)
+## [PUT] /api/projects/:id
+- [ ] responds with the updated project (5 ms)
+- [ ] updates the project in the projects table (5 ms)
+- [ ] responds with a 400 if the request body is missing name, description or completed (4 ms)
+## [DELETE] /api/projects/:id
+- [ ] deletes the action with the given id (5 ms)
+- [ ] responds with a 404 if no project with given id (4 ms)
+## [GET] /api/projects/:id/actions
+- [ ] sends back the actions in project with given id (4 ms)
+- [ ] sends back empty array if no actions in project with given id (4 ms)
+      actions endpoints
+## [GET] /api/actions
+- [ ] sends back all actions that exist (3 ms)
+- [ ] sends back empty array if no actions (4 ms)
+## [GET] /api/actions/:id
+- [ ] sends back the action with given id (3 ms)
+- [ ] responds with a 404 if no action with given id (4 ms)
+## [POST] /api/actions
+- [ ] responds with the newly created action (4 ms)
+- [ ] inserts a new action into actions table (4 ms)
+- [ ] responds with a 400 if the request body is missing notes, description or project_id (3 ms)
+## [PUT] /api/actions/:id
+- [ ] responds with the updated action (4 ms)
+- [ ] updates the action in the actions table (3 ms)
+- [ ] responds with a 400 if the request body is missing missing notes, description, completed or project_id (4 ms)
+## [DELETE] /api/actions/:id
+- [ ] deletes the action with the given id (4 ms)
+- [ ] responds with a 404 if no action with given id (3 ms)
