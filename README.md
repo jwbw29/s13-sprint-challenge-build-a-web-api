@@ -128,44 +128,44 @@ We have provided test data for all the resources.
 
 # TESTS
 
-✓ [0] sanity check (5 ms)
+✓ [0] sanity check (6 ms)
 server.js
 projects endpoints
 [GET] /api/projects
-✓ [1] sends back all projects that exist (15 ms)
+✓ [1] sends back all projects that exist (21 ms)
 ✓ [2] sends back empty array if no projects (5 ms)
 [GET] /api/projects/:id
 ✓ [3] sends back the project with given id (5 ms)
-✓ [4] responds with a 404 if no project with given id (4 ms)
+✓ [4] responds with a 404 if no project with given id (5 ms)
 [POST] /api/projects
 ✓ [5] responds with the newly created project (11 ms)
-✓ [6] inserts a new project into projects table (5 ms)
+✓ [6] inserts a new project into projects table (6 ms)
 ✓ [7] responds with a 400 if the request body is missing name or description (6 ms)
 [PUT] /api/projects/:id
 ✓ [8] responds with the updated project (7 ms)
-✓ [9] updates the project in the projects table (7 ms)
+✓ [9] updates the project in the projects table (8 ms)
 ✓ [10] responds with a 400 if the request body is missing name, description or completed (8 ms)
 [DELETE] /api/projects/:id
 ✓ [11] deletes the action with the given id (7 ms)
-✓ [12] responds with a 404 if no project with given id (6 ms)
+✓ [12] responds with a 404 if no project with given id (8 ms)
 [GET] /api/projects/:id/actions
-✓ [13] sends back the actions in project with given id (7 ms)
-✓ [14] sends back empty array if no actions in project with given id (6 ms)
+✓ [13] sends back the actions in project with given id (15 ms)
+✓ [14] sends back empty array if no actions in project with given id (4 ms)
 actions endpoints
 [GET] /api/actions
-✓ [15] sends back all actions that exist (6 ms)
-✓ [16] sends back empty array if no actions (6 ms)
+✓ [15] sends back all actions that exist (4 ms)
+✓ [16] sends back empty array if no actions (5 ms)
 [GET] /api/actions/:id
-✓ [17] sends back the action with given id (5 ms)
-✓ [18] responds with a 404 if no action with given id (5 ms)
+✓ [17] sends back the action with given id (4 ms)
+✓ [18] responds with a 404 if no action with given id (4 ms)
 [POST] /api/actions
 ✕ [19] responds with the newly created action (8 ms)
-✕ [20] inserts a new action into actions table (17 ms)
-✕ [21] responds with a 400 if the request body is missing notes, description or project_id (8 ms)
+✕ [20] inserts a new action into actions table (5 ms)
+✕ [21] responds with a 400 if the request body is missing notes, description or project_id (4 ms)
 [PUT] /api/actions/:id
-✕ [22] responds with the updated action (5 ms)
+✕ [22] responds with the updated action (4 ms)
 ✕ [23] updates the action in the actions table (4 ms)
 ✕ [24] responds with a 400 if the request body is missing missing notes, description, completed or project_id (4 ms)
 [DELETE] /api/actions/:id
 ✕ [25] deletes the action with the given id (5 ms)
-✓ [26] responds with a 404 if no action with given id (4 ms)
+✓ [26] responds with a 404 if no action with given id (5 ms)

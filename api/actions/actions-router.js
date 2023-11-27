@@ -3,22 +3,12 @@ const Actions = require("./actions-model");
 
 const router = express.Router();
 
-// [ ] `[GET] /api/actions`
-//   - Returns an array of actions (or an empty array) as the body of the response.
-
-//// NOTE DONE YET /////
-router.get("/", (req, res) => {
+router.get("/", (req, res, next) => {
   Actions.get()
     .then((actions) => {
       res.status(200).json(actions);
     })
-    .catch((err) => {
-      res.status(500).json({
-        message: "Error retrieving the actions",
-        errMessage: err.message,
-        stack: err.stack,
-      });
-    });
+    .catch(next);
 });
 
 // [ ] `[GET] /api/actions/:id`
