@@ -1,5 +1,5 @@
 const express = require("express");
-const actionsRouter = require("./actions-model");
+const Actions = require("./actions-model");
 
 const router = express.Router();
 
@@ -8,8 +8,7 @@ const router = express.Router();
 
 //// NOTE DONE YET /////
 router.get("/", (req, res) => {
-  actionsRouter
-    .get()
+  Actions.get()
     .then((actions) => {
       res.status(200).json(actions);
     })
@@ -27,8 +26,7 @@ router.get("/", (req, res) => {
 //   - If there is no action with the given `id` it responds with a status code 404.
 
 router.get("/:id", (req, res, next) => {
-  actionsRouter
-    .get(req.params.id)
+  Actions.get(req.params.id)
     .then((action) => {
       if (!action) {
         res.status(404).json({
