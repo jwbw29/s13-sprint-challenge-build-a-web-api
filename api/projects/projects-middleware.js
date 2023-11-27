@@ -17,4 +17,15 @@ const checkProjectId = async (req, res, next) => {
   }
 };
 
-module.exports = { checkProjectId };
+const checkNewProject = (req, res, next) => {
+  const { name, description } = req.body;
+  if (!name || !description) {
+    res.status(400).json({
+      message: "Project name and description are required",
+    });
+  } else {
+    next();
+  }
+};
+
+module.exports = { checkProjectId, checkNewProject };

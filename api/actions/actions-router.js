@@ -7,7 +7,7 @@ const router = express.Router();
 //   - Returns an array of actions (or an empty array) as the body of the response.
 
 //// NOTE DONE YET /////
-router.get("/api/actions", (req, res) => {
+router.get("/", (req, res) => {
   actionsRouter
     .get()
     .then((actions) => {
@@ -25,6 +25,21 @@ router.get("/api/actions", (req, res) => {
 // [ ] `[GET] /api/actions/:id`
 //   - Returns an action with the given `id` as the body of the response.
 //   - If there is no action with the given `id` it responds with a status code 404.
+
+router.get("/:id", (req, res, next) => {
+  actionsRouter
+    .get(req.params.id)
+    .then((action) => {
+      if (!action) {
+        res.status(404).json({
+          message: "Action not found",
+        });
+      } else {
+        res.json(action);
+      }
+    })
+    .catch(next);
+});
 
 // [ ] `[POST] /api/actions`
 //   - Returns the newly created action as the body of the response.
