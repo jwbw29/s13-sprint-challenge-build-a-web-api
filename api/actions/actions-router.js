@@ -42,9 +42,6 @@ router.put("/:id", checkActionId, checkNewAction, (req, res, next) => {
     .catch(next);
 });
 
-// [ ] `[DELETE] /api/actions/:id`
-//   - Returns no response body.
-//   - If there is no action with the given `id` it responds with a status code 404.
 router.delete("/:id", checkActionId, (req, res, next) => {
   Actions.remove(req.params.id)
     .then(() => {
