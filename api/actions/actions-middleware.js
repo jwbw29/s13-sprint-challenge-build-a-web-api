@@ -17,10 +17,10 @@ const checkActionId = async (req, res, next) => {
 };
 
 const checkNewAction = (req, res, next) => {
-  const { name, description, completed } = req.body;
-  if (!name || !description || completed === undefined) {
+  const { notes, description, project_id } = req.body;
+  if (!notes || !description || project_id === undefined) {
     res.status(400).json({
-      message: "action name and description are required",
+      message: "notes, description and project_id are required",
     });
   } else {
     next();
